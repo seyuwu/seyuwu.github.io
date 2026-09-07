@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Илья Нефонтов — Developer · Automation Engineer</title>
+  <meta name="description" content="Разрабатываю прикладные системы, веб-приложения и автоматизацию для реальных задач.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+</head>
+<body>
+
+  <!-- Фоновые декорации -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__grid"></div>
+    <div class="bg__blob bg__blob--left"></div>
+    <div class="bg__blob bg__blob--right"></div>
+  </div>
+  <span class="bg__side-label bg__side-label--left" aria-hidden="true">portfolio — 2026</span>
+  <span class="bg__side-label bg__side-label--right" aria-hidden="true">design & engineering</span>
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#top" class="header__logo">
+        <span class="header__avatar">ИН</span>
+        <span class="header__name">Илья Нефонтов</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#projects">Проекты</a>
+        <a href="#skills">Навыки</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ================= HERO ================= -->
+    <section class="hero container">
+      <div class="hero__left">
+        <h1 class="hero__title reveal">Илья Нефонтов</h1>
+        <p class="hero__role reveal">Developer · Automation Engineer · AI-assisted Development</p>
+        <p class="hero__bio reveal">
+          Проектирую и разрабатываю системы для реальных задач — от идеи и архитектуры
+          до запуска и развития продукта. Начинаю не с кода, а с понимания задачи.
+        </p>
+
+        <!-- ЗАМЕНИТЕ ссылки на реальные контакты -->
+        <div class="hero__links reveal">
+          <a class="chip chip--btn" href="#">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 2c-5.5 0-10 4.5-10 10 0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.6.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4-1.3 6.8-5.1 6.8-9.5 0-5.5-4.5-10-10-10z"/></svg>
+            Telegram
+          </a>
+          <a class="chip chip--btn" href="#">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.04 11.04 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a class="chip chip--btn" href="#">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            Email
+          </a>
+        </div>
+        <a href="#projects" class="hero__scroll-cue reveal">Смотреть проекты ↓</a>
+      </div>
+
+      <!-- Визуальная панель справа -->
+      <div class="hero__visual reveal" aria-hidden="true">
+        <div class="code-window">
+          <div class="code-window__bar"><span></span><span></span><span></span><em>approach.ts</em></div>
+          <pre class="code-window__body"><code><span class="c-k">const</span> <span class="c-v">process</span> = [
+  <span class="c-s">"понять задачу"</span>,
+  <span class="c-s">"исследовать"</span>,
+  <span class="c-s">"спроектировать"</span>,
+  <span class="c-s">"написать код"</span>,
+  <span class="c-s">"запустить"</span>,
+  <span class="c-s">"развивать"</span>
+];
+
+<span class="c-v">ship</span>(<span class="c-v">process</span>); <span class="c-c">// каждый проект</span></code></pre>
+        </div>
+        <div class="float-chip float-chip--1">⬢ Go</div>
+        <div class="float-chip float-chip--2">◈ PostgreSQL</div>
+        <div class="float-chip float-chip--3">▣ Docker</div>
+        <div class="float-card float-card--1"><b>★ Opinia</b><span>платформа рейтингов</span></div>
+        <div class="float-card float-card--2"><b>⬡ logITika</b><span>Go · production</span></div>
+      </div>
+    </section>
+
+    <!-- ================= Бегущая строка технологий ================= -->
+    <div class="ticker" id="ticker" aria-hidden="true"></div>
+
+    <!-- ================= ПРОЦЕСС (одна строка) ================= -->
+    <section class="strip container reveal">
+      <span class="strip__label">Как я работаю</span>
+      <div class="strip__flow">
+        <span>понять</span><i>→</i><span>исследовать</span><i>→</i><span>спроектировать</span><i>→</i><span>написать код</span><i>→</i><span>запустить</span><i>→</i><span>развивать</span>
+      </div>
+    </section>
+
+    <!-- ================= ПРОЕКТЫ ================= -->
+    <section class="section container" id="projects">
+      <h2 class="section__title reveal">Проекты <span class="count" id="projectsCount"></span></h2>
+      <!-- Карточки генерируются из js/projects.js -->
+      <div class="grid" id="projectsList"></div>
+    </section>
+
+    <!-- ================= НАВЫКИ ================= -->
+    <section class="section container" id="skills">
+      <h2 class="section__title reveal">Навыки</h2>
+      <div class="skills reveal">
+        <div class="skill-row"><b>Backend</b><div class="chips"><span>Go</span><span>REST API</span><span>PostgreSQL</span><span>Redis</span><span>Бизнес-логика</span><span>Модульная архитектура</span><span>Авторизация / RBAC</span><span>Фоновые процессы</span></div></div>
+        <div class="skill-row"><b>Frontend</b><div class="chips"><span>HTML / CSS / JS</span><span>Работа с API</span><span>Клиентская логика</span><span>Пользовательские сценарии</span></div></div>
+        <div class="skill-row"><b>Infrastructure</b><div class="chips"><span>Docker</span><span>Linux / VPS</span><span>Deployment</span><span>HTTPS</span><span>Бэкапы</span><span>Мониторинг</span></div></div>
+        <div class="skill-row"><b>Automation</b><div class="chips"><span>Анализ бизнес-процессов</span><span>Интеграция систем</span><span>Внешние API</span><span>Масштабирование</span></div></div>
+        <div class="skill-row"><b>AI-assisted</b><div class="chips"><span>Исследование решений</span><span>Генерация и рефакторинг кода</span><span>Декомпозиция задач</span><span>Прототипы</span><span>Проверка AI-кода</span></div></div>
+      </div>
+    </section>
+
+    <!-- ================= ПРИНЦИП (компактно) ================= -->
+    <section class="section container">
+      <div class="quote reveal">
+        <p>«Хороший код — не цель. Цель — система, которая решает задачу, понятна людям и живёт после запуска».</p>
+      </div>
+    </section>
+
+    <!-- ================= КОНТАКТ ================= -->
+    <section class="section container contact" id="contact">
+      <h2 class="section__title reveal">Обсудим задачу?</h2>
+      <p class="contact__sub reveal">Открыт к разработке, автоматизации и продуктовым проектам.</p>
+      <!-- ЗАМЕНИТЕ ссылки на реальные контакты -->
+      <div class="hero__links reveal">
+        <a class="chip chip--btn" href="#">✉ Email</a>
+        <a class="chip chip--btn" href="#">➤ Telegram</a>
+        <a class="chip chip--btn" href="#">⌥ GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© <span id="year"></span> Илья Нефонтов</span>
+  </footer>
+
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
