@@ -3,6 +3,12 @@
    ============================================================ */
 
 // ---------- Карточки проектов ----------
+function renderEngineeringDetails(ed) {
+  return `<div class="ed">` + Object.entries(ed).map(([label, text]) =>
+    `<div class="ed__sec"><b>${label}</b><p>${text}</p></div>`
+  ).join("") + `</div>`;
+}
+
 function renderProjects() {
   const list = document.getElementById("projectsList");
   if (!list || typeof PROJECTS === "undefined") return;
@@ -15,6 +21,18 @@ function renderProjects() {
 
   visible.forEach((p) => {
     const accent = p.accent || "#6e5bff";
+    const hasEd = p.engineeringDetails && Object.keys(p.engineeringDetails).length;
+    const hasDetails = hasEd || (p.details && p.details.length);
+
+    const detailsHtml = hasDetails
+      ? `<button class="card__toggle" type="button" data-label="${hasEd ? "Engineering details" : "Подробнее"}">${hasEd ? "Engineering details" : "Подробнее"}</button>
+         <div class="card__details">
+           ${hasEd
+             ? renderEngineeringDetails(p.engineeringDetails)
+             : `<ul>${p.details.map((t) => `<li>${t}</li>`).join("")}</ul>`}
+         </div>`
+      : "";
+
     const card = document.createElement("article");
     card.className = "card reveal";
     card.style.setProperty("--accent", accent);
@@ -31,17 +49,16 @@ function renderProjects() {
 
         <p class="card__summary">${p.summary || ""}</p>
 
+        ${p.solution ? `<p class="card__fact"><b>Решение —</b> ${p.solution}</p>` : ""}
+        ${p.personally ? `<p class="card__fact"><b>Лично —</b> ${p.personally}</p>` : ""}
+
         <div class="card__tags">
           ${(p.tags || []).map((t) => `<span>${t}</span>`).join("")}
         </div>
 
-        ${p.details && p.details.length ? `
-          <button class="card__toggle" type="button">Подробнее</button>
-          <div class="card__details">
-            <ul>${p.details.map((t) => `<li>${t}</li>`).join("")}</ul>
-          </div>` : ""}
+        ${detailsHtml}
 
-        ${p.link ? `<a class="card__link" href="${p.link}" target="_blank" rel="noopener">Открыть ↗</a>` : ""}
+        ${p.link ? `<a class="card__link" href="${p.link}" target="_blank" rel="noopener">${/github\.com/.test(p.link) ? "GitHub →" : "Открыть ↗"}</a>` : ""}
       </div>
 
       <div class="card__art" aria-hidden="true">
@@ -52,12 +69,12 @@ function renderProjects() {
     list.appendChild(card);
   });
 
-  // аккордеон "Подробнее"
+  // аккордеон "Engineering details" / "Подробнее"
   list.querySelectorAll(".card__toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
       const card = btn.closest(".card");
       const open = card.classList.toggle("open");
-      btn.textContent = open ? "Свернуть" : "Подробнее";
+      btn.textContent = open ? "Свернуть" : btn.dataset.label;
     });
   });
 }
@@ -97,7 +114,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // ---------- Бегущая строка технологий ----------
 const TECH = [
   "Go", "PostgreSQL", "Redis", "Docker", "REST API", "JavaScript",
-  "Linux / VPS", "HTTPS", "RBAC", "AI-assisted Development",
+  "Linux / VPS", "HTTPS", "RBAC", "Claude Code", "AI-assisted Development",
   "Парсеры", "Кэширование", "Модульная архитектура", "Автоматизация"
 ];
 (function renderTicker() {
