@@ -1,10 +1,15 @@
 /* ============================================================
-   Рендер проектов из js/projects.js + интерактив
+   Рендер записей журнала из js/projects.js + интерактив
    ============================================================ */
 
-// ---------- Карточки проектов ----------
+// Статичный рендер для скриншотов (?capture=1)
+if (new URLSearchParams(location.search).has("capture")) {
+  document.documentElement.classList.add("capture");
+}
+
+// ---------- Записи журнала (проекты) ----------
 function renderEngineeringDetails(ed) {
-  return `<div class="ed">` + Object.entries(ed).map(([label, text]) =>
+  return `<div class="ed__list">` + Object.entries(ed).map(([label, text]) =>
     `<div class="ed__sec"><b>${label}</b><p>${text}</p></div>`
   ).join("") + `</div>`;
 }
@@ -15,153 +20,148 @@ function renderProjects() {
 
   const visible = PROJECTS.filter((p) => p.visible !== false);
   const counter = document.getElementById("projectsCount");
+  const total = document.getElementById("projectsTotal");
   if (counter) counter.textContent = visible.length;
+  if (total) total.textContent = visible.length;
 
   list.innerHTML = "";
 
-  visible.forEach((p) => {
-    const accent = p.accent || "#6e5bff";
+  visible.forEach((p, idx) => {
+    const num = String(idx + 1).padStart(2, "0");
     const hasEd = p.engineeringDetails && Object.keys(p.engineeringDetails).length;
     const hasDetails = hasEd || (p.details && p.details.length);
+    const detailsId = `entry-details-${num}`;
 
     const detailsHtml = hasDetails
-      ? `<button class="card__toggle" type="button" data-label="${hasEd ? "Engineering details" : "Подробнее"}">${hasEd ? "Engineering details" : "Подробнее"}</button>
-         <div class="card__details">
+      ? `<button class="entry__toggle" type="button" aria-expanded="false" aria-controls="${detailsId}" data-label="${hasEd ? "Замеры проекта" : "Подробнее"}">
+           ${hasEd ? "Замеры проекта" : "Подробнее"}
+         </button>
+         <div class="entry__details" id="${detailsId}">
            ${hasEd
              ? renderEngineeringDetails(p.engineeringDetails)
-             : `<ul>${p.details.map((t) => `<li>${t}</li>`).join("")}</ul>`}
+             : `<div class="ed__list">${p.details.map((t) => `<div class="ed__sec"><p>${t}</p></div>`).join("")}</div>`}
          </div>`
       : "";
 
-    const card = document.createElement("article");
-    card.className = "card reveal";
-    card.style.setProperty("--accent", accent);
-    card.innerHTML = `
-      <div class="card__body">
-        <div class="card__head">
-          <span class="card__icon">${p.icon || "◆"}</span>
-          <div class="card__titles">
-            <h3>${p.name}</h3>
-            <p>${p.tagline || ""}</p>
-          </div>
-          ${p.status ? `<span class="card__status">${p.status}</span>` : ""}
-        </div>
+    // Статус как отметка: «в работе» — красный крест-штамп, остальное — синий штамп
+    const inWork = /разработ/i.test(p.status || "");
 
-        <p class="card__summary">${p.summary || ""}</p>
+    const entry = document.createElement("article");
+    entry.className = "entry reveal";
+    entry.innerHTML = `
+      <div class="entry__margin">
+        <span class="entry__num">Запись № ${num}</span>
+        ${p.status ? `<span class="stamp ${inWork ? "stamp--red" : "stamp--blue"} entry__stamp stamp-land">${p.status}</span>` : ""}
+      </div>
 
-        ${p.solution ? `<p class="card__fact"><b>Решение —</b> ${p.solution}</p>` : ""}
-        ${p.personally ? `<p class="card__fact"><b>Лично —</b> ${p.personally}</p>` : ""}
+      <div class="entry__body">
+        <h3 class="entry__name">${p.name}</h3>
+        <p class="entry__tagline">${p.tagline || ""}</p>
 
-        <div class="card__tags">
-          ${(p.tags || []).map((t) => `<span>${t}</span>`).join("")}
-        </div>
+        <p class="entry__summary">${p.summary || ""}</p>
+
+        ${(p.solution || p.personally) ? `<div class="entry__fields">
+          ${p.solution ? `<div><b>Решение</b><p>${p.solution}</p></div>` : ""}
+          ${p.personally ? `<div><b>Лично</b><p>${p.personally}</p></div>` : ""}
+        </div>` : ""}
+
+        ${p.tags && p.tags.length ? `<p class="entry__materials">${p.tags.join("<i>·</i>")}</p>` : ""}
 
         ${detailsHtml}
 
-        ${p.link ? `<a class="card__link" href="${p.link}" target="_blank" rel="noopener">${/github\.com/.test(p.link) ? "GitHub →" : "Открыть ↗"}</a>` : ""}
-      </div>
-
-      <div class="card__art" aria-hidden="true">
-        <span class="card__art-icon">${p.icon || "◆"}</span>
-        <span class="card__art-name">${p.name}</span>
+        ${p.link ? `<a class="entry__link" href="${p.link}" target="_blank" rel="noopener">${/github\.com/.test(p.link) ? "Исходники на GitHub" : "Открыть проект"}</a>` : ""}
       </div>
     `;
-    list.appendChild(card);
+    list.appendChild(entry);
   });
 
-  // аккордеон "Engineering details" / "Подробнее"
-  list.querySelectorAll(".card__toggle").forEach((btn) => {
+  // аккордеон замеров
+  list.querySelectorAll(".entry__toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const card = btn.closest(".card");
-      const open = card.classList.toggle("open");
+      const entry = btn.closest(".entry");
+      const open = entry.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
       btn.textContent = open ? "Свернуть" : btn.dataset.label;
     });
   });
 }
 renderProjects();
 
-// ---------- Появление при прокрутке ----------
+// ---------- Появление при прокрутке + приёмка штампом ----------
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
         e.target.classList.add("in-view");
+        if (e.target.classList.contains("entry") || e.target.classList.contains("entry-frag")) {
+          e.target.classList.add("stamped");
+        }
         io.unobserve(e.target);
       }
     });
   },
-  { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
+  { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
 );
 document.querySelectorAll(".reveal").forEach((el, i) => {
-  el.style.transitionDelay = `${(i % 4) * 60}ms`;
+  el.style.transitionDelay = `${(i % 4) * 50}ms`;
   io.observe(el);
 });
 
-// ---------- Плавный скролл с учётом шапки ----------
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
-  a.addEventListener("click", (e) => {
-    const target = document.querySelector(a.getAttribute("href"));
-    if (!target) return;
-    e.preventDefault();
-    const y = target.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  });
+// подчёркивания в герое дорисовываются сразу после загрузки
+window.addEventListener("load", () => {
+  document.querySelectorAll(".ink-u").forEach((el) => el.classList.add("drawn"));
 });
 
-// ---------- Год в футере ----------
+// ---------- Скроллспай: активная графа навигации ----------
+const navLinks = [...document.querySelectorAll(".tabs a")];
+const sections = navLinks
+  .map((a) => document.querySelector(a.getAttribute("href")))
+  .filter(Boolean);
+const spy = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach((a) =>
+        a.classList.toggle("active", a.getAttribute("href") === `#${e.target.id}`)
+      );
+    });
+  },
+  { rootMargin: "-30% 0px -60% 0px" }
+);
+sections.forEach((s) => spy.observe(s));
+
+// ---------- Год в колонтитуле ----------
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ---------- Бегущая строка технологий ----------
-const TECH = [
-  "Go", "PostgreSQL", "Redis", "Docker", "REST API", "JavaScript",
-  "Linux / VPS", "HTTPS", "RBAC", "Claude Code", "AI-assisted Development",
-  "Парсеры", "Кэширование", "Модульная архитектура", "Автоматизация"
-];
-(function renderTicker() {
-  const ticker = document.getElementById("ticker");
-  if (!ticker) return;
-  const group = TECH.map((t) => `<span>${t}</span><i>✦</i>`).join("");
-  ticker.innerHTML =
-    `<div class="ticker__track">` +
-    `<div class="ticker__group">${group}</div>` +
-    `<div class="ticker__group">${group}</div>` +
-    `</div>`;
-})();
-
-// ---------- Свечение карточек за курсором ----------
-document.getElementById("projectsList").addEventListener("pointermove", (e) => {
-  const card = e.target.closest(".card");
-  if (!card) return;
-  const r = card.getBoundingClientRect();
-  card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-  card.style.setProperty("--my", (e.clientY - r.top) + "px");
-});
-
-// ---------- Пасхалка: конфетти по клику на аватар ----------
-const avatar = document.querySelector(".header__avatar");
-if (avatar) {
-  avatar.addEventListener("click", (e) => {
+// ---------- Пасхалка: штамп «прочитано» по клику на исполнителя ----------
+const brand = document.getElementById("brand");
+const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (brand) {
+  brand.addEventListener("click", (e) => {
+    // с клавиатуры — обычный переход к началу страницы
+    if (e.detail === 0) return;
     e.preventDefault();
-    const colors = ["#6e5bff", "#0ea5e9", "#10b981", "#f97316", "#f5c04e"];
-    for (let i = 0; i < 28; i++) {
-      const p = document.createElement("span");
-      p.className = "confetti";
-      p.style.left = e.clientX + "px";
-      p.style.top = e.clientY + "px";
-      p.style.background = colors[i % colors.length];
-      document.body.appendChild(p);
-      const angle = Math.random() * Math.PI * 2;
-      const dist = 60 + Math.random() * 110;
-      p.animate(
+    const s = document.createElement("span");
+    s.className = "read-stamp";
+    s.textContent = "Прочитано";
+    s.style.left = e.clientX - 60 + "px";
+    s.style.top = e.clientY - 24 + "px";
+    s.style.transform = `rotate(${Math.random() * 10 - 11}deg)`;
+    document.body.appendChild(s);
+    if (motionOk) {
+      s.animate(
         [
-          { transform: "translate(0,0) rotate(0deg)", opacity: 1 },
-          {
-            transform: `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist + 80}px) rotate(${Math.random() * 540 - 270}deg)`,
-            opacity: 0
-          }
+          { transform: `${s.style.transform} scale(1.8)`, opacity: 0 },
+          { transform: `${s.style.transform} scale(1)`, opacity: 1 }
         ],
-        { duration: 900 + Math.random() * 500, easing: "cubic-bezier(0.2,0.7,0.3,1)" }
-      ).onfinish = () => p.remove();
+        { duration: 300, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }
+      );
+      setTimeout(() => {
+        s.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, fill: "forwards" })
+          .onfinish = () => s.remove();
+      }, 1400);
+    } else {
+      setTimeout(() => s.remove(), 1400);
     }
   });
 }

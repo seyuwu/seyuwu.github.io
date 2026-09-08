@@ -5,236 +5,273 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Илья Нефонтов — Developer · Automation Engineer</title>
   <meta name="description" content="Проектирую и запускаю прикладные системы — от идеи и архитектуры до production. AI-assisted development как инженерный инструмент.">
+  <meta property="og:title" content="Илья Нефонтов — Developer · Automation Engineer">
+  <meta property="og:description" content="Журнал инженера: записи о том, как системы доходят до production.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&family=PT+Mono&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%232C41B0'/><text x='50' y='64' font-size='44' font-family='Arial, sans-serif' font-weight='bold' fill='%23F7F6F2' text-anchor='middle'>ИН</text></svg>">
 </head>
 <body>
 
-  <!-- Фоновые декорации -->
-  <div class="bg" aria-hidden="true">
-    <div class="bg__grid"></div>
-    <div class="bg__blob bg__blob--left"></div>
-    <div class="bg__blob bg__blob--right"></div>
-  </div>
-  <span class="bg__side-label bg__side-label--left" aria-hidden="true">портфолио — 2026</span>
-  <span class="bg__side-label bg__side-label--right" aria-hidden="true">инженерия и разработка</span>
+  <a class="skip-link" href="#main">К содержанию</a>
 
-  <!-- Шапка -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="#top" class="header__logo">
-        <span class="header__avatar">ИН</span>
-        <span class="header__name">Илья Нефонтов</span>
+  <!-- Перфорация листа -->
+  <div class="holes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <!-- Шапка-реквизиты бланка -->
+  <header class="formhead">
+    <div class="container formhead__grid">
+      <a href="#top" class="formhead__person" id="brand">
+        <span class="formhead__doc">Наименование: журнал инженера</span>
+        <span class="formhead__mono">
+          <b>Исполнитель:</b> Илья Нефонтов
+        </span>
+        <span class="formhead__status"><i aria-hidden="true"></i>открыт для задач</span>
       </a>
-      <nav class="header__nav">
-        <a href="#projects">Проекты</a>
-        <a href="#approach">Подход</a>
-        <a href="#skills">Навыки</a>
-        <a href="#contact">Контакты</a>
+      <nav class="tabs" aria-label="Разделы журнала">
+        <a href="#projects">Записи</a>
+        <a href="#ai">Регламент</a>
+        <a href="#approach">Решения</a>
+        <a href="#skills">Компетенции</a>
+        <a href="#contact">Связь</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <!-- ================= HERO ================= -->
-    <section class="hero container">
-      <div class="hero__left">
-        <h1 class="hero__title reveal">Илья Нефонтов</h1>
-        <p class="hero__role reveal">Developer · Automation Engineer · AI-assisted Development</p>
-        <p class="hero__bio reveal">
-          Проектирую и запускаю прикладные системы — от идеи и архитектуры до production.
+  <main id="main">
+    <!-- ================= РАЗВОРОТ 1: ЖУРНАЛ ================= -->
+    <section class="hero container" id="top">
+      <div class="hero__left reveal">
+        <p class="hero__requisite">Наименование: <b>журнал инженера</b> · лист 1</p>
+        <h1 class="hero__title">Илья Нефонтов</h1>
+        <p class="hero__role">Developer&nbsp;· Automation Engineer&nbsp;· AI-assisted Development</p>
+        <p class="hero__thesis">
+          Проектирую и запускаю прикладные системы&nbsp;— <span class="ink-u">от идеи и архитектуры до&nbsp;production<svg viewBox="0 0 220 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 C 62 5, 150 3, 216 8" pathLength="100"/></svg></span>.
+        </p>
+        <p class="hero__bio">
           Использую AI-assisted development, чтобы быстрее исследовать решения, писать код
           и доводить продукты до рабочего состояния.
         </p>
 
-        <div class="hero__links reveal">
-          <a class="chip chip--btn" href="https://t.me/seyuwork" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6c.3-1.4-.7-2-1.7-1.6L2.7 9.9c-1.4.5-1.3 1.4-.2 1.7l4.4 1.4 10.2-6.4c.5-.3.9-.1.6.2l-8.3 7.5-.3 4.5c.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3.3-14.2z"/></svg>
+        <div class="actions">
+          <a class="btn btn--primary" href="https://t.me/seyuwork" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6c.3-1.4-.7-2-1.7-1.6L2.7 9.9c-1.4.5-1.3 1.4-.2 1.7l4.4 1.4 10.2-6.4c.5-.3.9-.1.6.2l-8.3 7.5-.3 4.5c.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3.3-14.2z"/></svg>
             Telegram
           </a>
-          <a class="chip chip--btn" href="https://github.com/seyuwu" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.04 11.04 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          <a class="btn" href="https://github.com/seyuwu" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.04 11.04 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
             GitHub
           </a>
-          <a class="chip chip--btn" href="mailto:nefony@gmail.com">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <a class="btn" href="mailto:nefony@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
             Email
           </a>
         </div>
-        <a href="#projects" class="hero__scroll-cue reveal">Смотреть проекты ↓</a>
+        <a href="#projects" class="hero__cue">К записям <span aria-hidden="true">↓</span></a>
       </div>
 
-      <!-- Визуальная панель справа -->
-      <div class="hero__visual reveal" aria-hidden="true">
-        <div class="code-window">
-          <div class="code-window__bar"><span></span><span></span><span></span><em>workflow.ts</em></div>
-          <pre class="code-window__body"><code><span class="c-k">const</span> <span class="c-v">plan</span> = <span class="c-v">research</span>(<span class="c-v">task</span>);
-<span class="c-k">const</span> <span class="c-v">code</span>  = <span class="c-v">ai</span>.<span class="c-v">implement</span>(<span class="c-v">plan</span>);
-
-<span class="c-v">review</span>(<span class="c-v">code</span>);  <span class="c-c">// проверяю архитектуру и критические участки</span>
-<span class="c-v">test</span>(<span class="c-v">code</span>);    <span class="c-c">// проверяю сценарии</span>
-
-<span class="c-v">ship</span>(<span class="c-v">code</span>); <span class="c-c">// deploy → iterate</span></code></pre>
+      <!-- Фрагмент текущей записи -->
+      <aside class="entry-frag reveal" aria-label="Пример записи из журнала">
+        <div class="entry-frag__head">
+          <span>Запись № 03</span>
+          <span>logITika</span>
         </div>
-        <div class="float-chip float-chip--1">⬢ Go</div>
-        <div class="float-chip float-chip--2">◈ PostgreSQL</div>
-        <div class="float-chip float-chip--3">▣ Docker</div>
-        <div class="float-card float-card--1"><b>★ Opinia</b><span>платформа рейтингов</span></div>
-        <div class="float-card float-card--2"><b>⬡ logITika</b><span>Go · Docker</span></div>
-      </div>
+        <p class="entry-frag__tagline">Платформа для учеников, родителей и преподавателей</p>
+        <div class="entry-frag__field">
+          <b>Решение</b>
+          <p>Разделение frontend/backend: Go-сервер отвечает за авторизацию, RBAC и данные, frontend — только за отображение.</p>
+        </div>
+        <div class="entry-frag__field">
+          <b>Лично</b>
+          <p>Реализовал backend на Go и frontend, настроил Docker, HTTPS, backups и обновление системы.</p>
+        </div>
+        <span class="stamp stamp--blue entry-frag__stamp">Рабочая система</span>
+      </aside>
     </section>
 
-    <!-- ================= Бегущая строка технологий ================= -->
-    <div class="ticker" id="ticker" aria-hidden="true"></div>
-
-    <!-- ================= AI-ASSISTED DEVELOPMENT ================= -->
-    <section class="section container" id="ai">
-      <h2 class="section__title reveal">AI-assisted development</h2>
-      <p class="section__lead reveal">
-        Использую Claude Code, ChatGPT и другие AI-инструменты не как замену инженерному
-        мышлению, а как рабочий инструмент на всём цикле разработки.
-      </p>
-
-      <div class="ai-steps reveal">
-        <div class="ai-step">
-          <span class="ai-step__num">01</span>
-          <h3>Исследование</h3>
-          <p>Изучаю задачу, существующие решения, API, ограничения и возможные архитектуры.</p>
-        </div>
-        <div class="ai-step">
-          <span class="ai-step__num">02</span>
-          <h3>Декомпозиция</h3>
-          <p>Разбиваю задачу на понятные компоненты и формирую план реализации.</p>
-        </div>
-        <div class="ai-step">
-          <span class="ai-step__num">03</span>
-          <h3>Проектирование</h3>
-          <p>Определяю архитектуру, границы модулей, модели данных, API и взаимодействие компонентов.</p>
-        </div>
-        <div class="ai-step">
-          <span class="ai-step__num">04</span>
-          <h3>Реализация</h3>
-          <p>Использую AI для генерации, рефакторинга и ускорения написания кода.</p>
-        </div>
-        <div class="ai-step">
-          <span class="ai-step__num">05</span>
-          <h3>Проверка</h3>
-          <p>Проверяю код, сгенерированный AI, тестирую сценарии, ищу ошибки и архитектурные проблемы.</p>
-        </div>
-        <div class="ai-step">
-          <span class="ai-step__num">06</span>
-          <h3>Запуск</h3>
-          <p>Контейнеризация, deployment, конфигурация, HTTPS, мониторинг и дальнейшая поддержка.</p>
-        </div>
-      </div>
-
-      <p class="keyline reveal">AI ускоряет написание кода. Ответственность за систему всё&nbsp;равно остаётся на&nbsp;разработчике.</p>
-    </section>
-
-    <!-- ================= ПРОЕКТЫ ================= -->
+    <!-- ================= РАЗДЕЛ: ЗАПИСИ ЖУРНАЛА ================= -->
     <section class="section container" id="projects">
-      <h2 class="section__title reveal">Проекты <span class="count" id="projectsCount"></span></h2>
-      <!-- Карточки генерируются из js/projects.js -->
-      <div class="grid" id="projectsList"></div>
+      <header class="section__head reveal">
+        <h2 class="section__title">Проекты</h2>
+        <p class="section__meta">журнал работ · всего записей: <span id="projectsCount"></span></p>
+      </header>
+      <!-- Записи генерируются из js/projects.js -->
+      <div class="ledger" id="projectsList"></div>
     </section>
 
-    <!-- ================= ИНЖЕНЕРНЫЙ ПОДХОД ================= -->
+    <!-- ================= РАЗДЕЛ: РЕГЛАМЕНТ РАБОТ ================= -->
+    <section class="section container" id="ai">
+      <header class="section__head reveal">
+        <h2 class="section__title">AI-assisted development</h2>
+        <p class="section__lead">
+          Использую Claude Code, ChatGPT и другие AI-инструменты не как замену инженерному
+          мышлению, а как рабочий инструмент на всём цикле разработки.
+        </p>
+      </header>
+
+      <ol class="rule-list reveal">
+        <li>
+          <span class="rule-list__num" aria-hidden="true">01</span>
+          <div><h3>Исследование</h3><p>Изучаю задачу, существующие решения, API, ограничения и возможные архитектуры.</p></div>
+        </li>
+        <li>
+          <span class="rule-list__num" aria-hidden="true">02</span>
+          <div><h3>Декомпозиция</h3><p>Разбиваю задачу на понятные компоненты и формирую план реализации.</p></div>
+        </li>
+        <li>
+          <span class="rule-list__num" aria-hidden="true">03</span>
+          <div><h3>Проектирование</h3><p>Определяю архитектуру, границы модулей, модели данных, API и взаимодействие компонентов.</p></div>
+        </li>
+        <li>
+          <span class="rule-list__num" aria-hidden="true">04</span>
+          <div><h3>Реализация</h3><p>Использую AI для генерации, рефакторинга и ускорения написания кода.</p></div>
+        </li>
+        <li>
+          <span class="rule-list__num" aria-hidden="true">05</span>
+          <div><h3>Проверка</h3><p>Проверяю код, сгенерированный AI, тестирую сценарии, ищу ошибки и архитектурные проблемы.</p></div>
+        </li>
+        <li>
+          <span class="rule-list__num" aria-hidden="true">06</span>
+          <div><h3>Запуск</h3><p>Контейнеризация, deployment, конфигурация, HTTPS, мониторинг и дальнейшая поддержка.</p></div>
+        </li>
+      </ol>
+
+      <p class="note reveal"><b>Примечание.</b> AI ускоряет написание кода. Ответственность за систему всё&nbsp;равно остаётся на&nbsp;разработчике.</p>
+    </section>
+
+    <!-- ================= РАЗДЕЛ: ПРИНЯТЫЕ РЕШЕНИЯ ================= -->
     <section class="section container" id="approach">
-      <h2 class="section__title reveal">Как я принимаю технические решения</h2>
-      <div class="terminal reveal">
-        <div class="code-window__bar"><span></span><span></span><span></span><em>principles.md</em></div>
-        <ul class="terminal__body">
-          <li><span class="terminal__num">01</span><span>Сначала задача, потом технология.</span></li>
-          <li><span class="terminal__num">02</span><span>Не добавляю сложность без необходимости.</span></li>
-          <li><span class="terminal__num">03</span><span>Разделяю бизнес-логику и инфраструктуру.</span></li>
-          <li><span class="terminal__num">04</span><span>Думаю о том, как систему будет поддерживать другой человек.</span></li>
-          <li><span class="terminal__num">05</span><span>Код, сгенерированный AI, проходит проверку, а не попадает в production вслепую.</span></li>
-          <li><span class="terminal__num">06</span><span>Предпочитаю понятную архитектуру преждевременной оптимизации.</span></li>
-        </ul>
+      <header class="section__head reveal">
+        <h2 class="section__title">Как я принимаю технические решения</h2>
+      </header>
+      <div class="protocol reveal">
+        <ol class="rule-list rule-list--protocol">
+          <li><span class="rule-list__num" aria-hidden="true">01</span><div><p>Сначала задача, потом технология.</p></div></li>
+          <li><span class="rule-list__num" aria-hidden="true">02</span><div><p>Не добавляю сложность без необходимости.</p></div></li>
+          <li><span class="rule-list__num" aria-hidden="true">03</span><div><p>Разделяю бизнес-логику и инфраструктуру.</p></div></li>
+          <li><span class="rule-list__num" aria-hidden="true">04</span><div><p>Думаю о том, как систему будет поддерживать другой человек.</p></div></li>
+          <li><span class="rule-list__num" aria-hidden="true">05</span><div><p>Код, сгенерированный AI, проходит проверку, а не попадает в production вслепую.</p></div></li>
+          <li><span class="rule-list__num" aria-hidden="true">06</span><div><p>Предпочитаю понятную архитектуру преждевременной оптимизации.</p></div></li>
+        </ol>
+        <p class="protocol__sign" aria-hidden="true">утверждаю — И.Н.</p>
       </div>
     </section>
 
-    <!-- ================= НАВЫКИ ================= -->
+    <!-- ================= РАЗДЕЛ: КОМПЕТЕНЦИИ ================= -->
     <section class="section container" id="skills">
-      <h2 class="section__title reveal">Навыки</h2>
-      <div class="skills reveal">
-        <div class="skill-row"><b>Backend</b><div class="chips"><span>Go</span><span>REST API</span><span>PostgreSQL</span><span>Redis</span><span>Бизнес-логика</span><span>Модульная архитектура</span><span>Фоновые задачи</span></div></div>
-        <div class="skill-row"><b>Frontend</b><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Браузерные API</span><span>Интеграция API</span></div></div>
-        <div class="skill-row"><b>Infrastructure</b><div class="chips"><span>Docker</span><span>Linux</span><span>VPS</span><span>HTTPS</span><span>Deployment</span></div></div>
-        <div class="skill-row"><b>Automation</b><div class="chips"><span>Внешние API</span><span>Обработка данных</span><span>Парсеры</span><span>Интеграция систем</span><span>Автоматизация процессов</span></div></div>
-        <div class="skill-row"><b>AI-assisted Development</b><div class="chips"><span>Claude Code</span><span>ChatGPT</span><span>Генерация кода</span><span>Рефакторинг</span><span>Код-ревью</span><span>Исследование решений</span><span>Декомпозиция задач</span><span>Прототипы</span><span>Проверка AI-кода</span></div></div>
+      <header class="section__head reveal">
+        <h2 class="section__title">Навыки</h2>
+        <p class="section__meta">перечень по областям</p>
+      </header>
+      <div class="table reveal" role="table" aria-label="Навыки по областям">
+        <div class="table__row" role="row">
+          <span class="table__cell table__cell--head" role="rowheader">Backend</span>
+          <span class="table__cell" role="cell">Go · REST API · PostgreSQL · Redis · Бизнес-логика · Модульная архитектура · Фоновые задачи</span>
+        </div>
+        <div class="table__row" role="row">
+          <span class="table__cell table__cell--head" role="rowheader">Frontend</span>
+          <span class="table__cell" role="cell">HTML · CSS · JavaScript · Браузерные API · Интеграция API</span>
+        </div>
+        <div class="table__row" role="row">
+          <span class="table__cell table__cell--head" role="rowheader">Infrastructure</span>
+          <span class="table__cell" role="cell">Docker · Linux · VPS · HTTPS · Deployment</span>
+        </div>
+        <div class="table__row" role="row">
+          <span class="table__cell table__cell--head" role="rowheader">Automation</span>
+          <span class="table__cell" role="cell">Внешние API · Обработка данных · Парсеры · Интеграция систем · Автоматизация процессов</span>
+        </div>
+        <div class="table__row" role="row">
+          <span class="table__cell table__cell--head" role="rowheader">AI-assisted Development</span>
+          <span class="table__cell" role="cell">Claude Code · ChatGPT · Генерация кода · Рефакторинг · Код-ревью · Исследование решений · Декомпозиция задач · Прототипы · Проверка AI-кода</span>
+        </div>
       </div>
     </section>
 
-    <!-- ================= ОТ ИДЕИ ДО PRODUCTION ================= -->
+    <!-- ================= РАЗДЕЛ: МАРШРУТ ================= -->
     <section class="section container" id="pipeline">
-      <h2 class="section__title reveal">От идеи до production</h2>
-      <div class="chain reveal" aria-label="Цепочка разработки: идея, исследование, архитектура, реализация, тест, деплой, итерация">
-        <span class="chain__node">IDEA</span><i class="chain__arrow">→</i>
-        <span class="chain__node">RESEARCH</span><i class="chain__arrow">→</i>
-        <span class="chain__node">ARCHITECTURE</span><i class="chain__arrow">→</i>
-        <span class="chain__node">IMPLEMENTATION</span><i class="chain__arrow">→</i>
-        <span class="chain__node">TEST</span><i class="chain__arrow">→</i>
-        <span class="chain__node">DEPLOY</span><i class="chain__arrow">→</i>
-        <span class="chain__node">ITERATE</span>
+      <header class="section__head reveal">
+        <h2 class="section__title">От идеи до production</h2>
+      </header>
+      <div class="route reveal" aria-label="Цепочка разработки: идея, исследование, архитектура, реализация, тест, деплой, итерация">
+        <span class="route__node">Idea</span>
+        <span class="route__node">Research</span>
+        <span class="route__node">Architecture</span>
+        <span class="route__node">Implementation</span>
+        <span class="route__node">Test</span>
+        <span class="route__node">Deploy</span>
+        <span class="route__node route__node--loop">Iterate</span>
       </div>
-      <p class="keyline reveal">Моя задача — не написать код. Моя задача — довести решение до состояния, в&nbsp;котором им&nbsp;можно пользоваться.</p>
+      <p class="note reveal"><b>Примечание.</b> Моя задача — не написать код. Моя задача — довести решение до состояния, в&nbsp;котором им&nbsp;можно пользоваться.</p>
     </section>
 
-    <!-- ================= ЧТО Я УМЕЮ ДЕЛАТЬ ================= -->
+    <!-- ================= РАЗДЕЛ: ПОРУЧЕНИЯ ================= -->
     <section class="section container" id="services">
-      <h2 class="section__title reveal">Что я умею делать</h2>
-      <div class="offer-grid reveal">
+      <header class="section__head reveal">
+        <h2 class="section__title">Что я умею делать</h2>
+        <p class="section__meta">перечень поручений</p>
+      </header>
+      <div class="ledger ledger--offers reveal">
         <div class="offer">
-          <h3><i>⚙</i>Автоматизация</h3>
+          <h3>Автоматизация</h3>
           <p>Убрать ручную работу, связать сервисы и API, автоматизировать повторяющиеся процессы.</p>
         </div>
         <div class="offer">
-          <h3><i>⬢</i>Backend</h3>
+          <h3>Backend</h3>
           <p>Спроектировать API, бизнес-логику, работу с данными и фоновые процессы.</p>
         </div>
         <div class="offer">
-          <h3><i>▣</i>Внутренние инструменты</h3>
+          <h3>Внутренние инструменты</h3>
           <p>Собрать небольшой сервис под конкретный процесс компании вместо использования тяжёлого универсального решения.</p>
         </div>
         <div class="offer">
-          <h3><i>◈</i>AI-assisted development</h3>
+          <h3>AI-assisted development</h3>
           <p>Быстро исследовать и реализовать решение с использованием AI, сохраняя контроль над архитектурой и кодом.</p>
         </div>
         <div class="offer">
-          <h3><i>⇄</i>Интеграции</h3>
+          <h3>Интеграции</h3>
           <p>Связать внешние API, базы данных и существующие системы.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= СЕЙЧАС ИЩУ ================= -->
+    <!-- ================= ТЕКУЩИЙ СТАТУС ================= -->
     <section class="section container">
-      <div class="looking reveal">
-        <span class="looking__label">Сейчас ищу</span>
-        <p class="looking__areas">Разработка · Автоматизация · AI-assisted development</p>
-        <p class="looking__text">Интересны задачи, где нужно разобраться в существующем процессе или системе, спроектировать решение и довести его до рабочего состояния.</p>
+      <div class="status-block reveal">
+        <p class="status-block__line">Статус: <b>сейчас ищу</b> — разработка · автоматизация · AI-assisted development</p>
+        <p class="status-block__text">Интересны задачи, где нужно разобраться в существующем процессе или системе, спроектировать решение и довести его до рабочего состояния.</p>
       </div>
     </section>
 
-    <!-- ================= КОНТАКТ ================= -->
+    <!-- ================= ПРИЁМКА СВЯЗИ ================= -->
     <section class="section container contact" id="contact">
-      <h2 class="section__title reveal">Есть задача?</h2>
-      <p class="contact__sub reveal">Расскажите, что нужно автоматизировать, разработать или упростить. Разберусь в задаче и предложу вариант реализации.</p>
-      <div class="hero__links reveal">
-        <a class="chip chip--btn" href="https://t.me/seyuwork" target="_blank" rel="noopener">➤ Telegram</a>
-        <a class="chip chip--btn" href="https://github.com/seyuwu" target="_blank" rel="noopener">⌥ GitHub</a>
-        <a class="chip chip--btn" href="mailto:nefony@gmail.com">✉ Email</a>
+      <div class="contact__sheet reveal">
+        <h2 class="section__title">Есть задача?</h2>
+        <p class="contact__sub">Расскажите, что нужно автоматизировать, разработать или упростить. Разберусь в задаче и предложу вариант реализации.</p>
+        <div class="actions actions--center">
+          <a class="btn btn--primary" href="https://t.me/seyuwork" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6c.3-1.4-.7-2-1.7-1.6L2.7 9.9c-1.4.5-1.3 1.4-.2 1.7l4.4 1.4 10.2-6.4c.5-.3.9-.1.6.2l-8.3 7.5-.3 4.5c.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3.3-14.2z"/></svg>
+            Telegram
+          </a>
+          <a class="btn" href="https://github.com/seyuwu" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.04 11.04 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1v3.11c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a class="btn" href="mailto:nefony@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            Email
+          </a>
+        </div>
+        <p class="contact__sign" aria-hidden="true">запись ведёт — И. Нефонтов</p>
+        <span class="stamp stamp--blue contact__stamp">Открыто для задач</span>
       </div>
     </section>
   </main>
 
-  <footer class="footer container">
-    <span>© <span id="year"></span> Илья Нефонтов</span>
-    <span>разработка и инженерия</span>
+  <footer class="colophon container">
+    <span>Лист 1 · записей: <span id="projectsTotal"></span></span>
+    <span>© <span id="year"></span> Илья Нефонтов · разработка и инженерия</span>
   </footer>
 
   <script src="js/projects.js"></script>
